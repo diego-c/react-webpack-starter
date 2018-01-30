@@ -18,3 +18,10 @@ This boilerplate supports by default:
 3. Install packages: `npm install`
 4. Start the server: `npm start`
 5. Go to `http://localhost:1337/`
+
+---
+To build your project:
+
+`npm run build`
+
+Your assets will be available in the `dist` folder
