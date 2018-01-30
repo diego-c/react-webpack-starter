@@ -1,3 +1,6 @@
+![Dependencies](https://david-dm.org/diego-c/react-webpack-starter.svg "Dependencies")
+![devDependencies](https://david-dm.org/diego-c/react-webpack-starter/dev-status.svg "devDependencies")
+
 # react-webpack-starter
 
 A lightweight setup for new React projects (development only)
