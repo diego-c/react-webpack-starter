@@ -13,7 +13,7 @@ This boilerplate supports by default:
 
 # Instructions
 
-1. Clone the repo: `git clone https://github.com/diego-c/react-webpack-starter`
+1. Clone the repo: `git clone https://github.com/diego-c/react-webpack-starter.git`
 2. Move to the project's directory: `cd react-webpack-starter`
 3. Install packages: `npm install`
 4. Start the server: `npm start`
