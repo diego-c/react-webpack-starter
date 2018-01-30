@@ -9,6 +9,7 @@ This boilerplate supports by default:
 - ES6+, including stage 2 ECMAScript proposals 
 - Compression enabled by webpack-dev-server
 - Hot Module Replacement (HMR)
+- Scoped CSS classes with CSS modules
 
 # Instructions
 
