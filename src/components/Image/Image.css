@@ -1,0 +1,9 @@
+.Img {
+    margin: 0 auto;
+    max-width: 90px;
+}
+
+.Img img {
+    display: inline-block;
+    width: 100%;
+}
