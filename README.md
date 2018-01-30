@@ -6,7 +6,8 @@ A lightweight setup for new React projects (development only)
 
 This boilerplate supports by default:
 
-- ES6+, including stage 2 ECMAScript proposals 
+- ES6+, including stage 2 ECMAScript proposals
+- Source Maps for easier debugging
 - Compression enabled by webpack-dev-server
 - Hot Module Replacement (HMR)
 - Scoped CSS classes with CSS modules
