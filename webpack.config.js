@@ -22,6 +22,21 @@ module.exports = {
                         presets: ['react', 'env', 'stage-2']
                     }
                 }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    {
+                        loader: 'style-loader'
+                    },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: true,
+                            localIdentName: '[name]__[local]__[hash:base64:5]'
+                        }
+                    }                    
+                ]
             }
         ]
     }
