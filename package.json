@@ -4,7 +4,7 @@
   "description": "A quick boilerplate for react projects set up with webpack",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --color --progress --hot",
+    "start": "webpack-dev-server --color --progress --hot --open",
     "build": "webpack --color --progress"
   },
   "keywords": [
