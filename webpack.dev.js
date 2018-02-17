@@ -44,7 +44,7 @@ module.exports = merge(common, {
             filename: '[name].js.map'
         }),
         new ExtractTextPlugin({
-            filename: 'css/style.css',
+            filename: './css/style.css',
             ignoreOrder: true
         }) 
     ]

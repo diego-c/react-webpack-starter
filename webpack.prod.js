@@ -11,20 +11,13 @@ module.exports = merge(common, {
             {
                 test: /\.(png|jpe?g|gif)$/,
                 use: {
-                    loader: 'url-loader',
-                    options: {
-                        limit: 10 * 1024
-                    }
+                    loader: 'url-loader?limit=10240&name=./img/[hash].[ext]'
                 }
             },
             {
                 test: /\.svg$/,
                 use: {
-                    loader: 'svg-url-loader',
-                    options: {
-                        limit: 10 * 1024,
-                        noquotes: true
-                    }
+                    loader: 'svg-url-loader?limit=10240&noquotes=true&name=./img/[hash].[ext]'
                 }
             },
             {
@@ -77,7 +70,7 @@ module.exports = merge(common, {
             'proccess.env.NODE_ENV': JSON.stringify('production')
         }),
         new ExtractTextPlugin({
-            filename: 'css/style.min.css',
+            filename: './css/style.min.css',
             ignoreOrder: true
         }) 
     ]
