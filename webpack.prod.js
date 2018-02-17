@@ -2,6 +2,7 @@ const merge = require('webpack-merge'),
 webpack = require('webpack'),
 UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
 CompressionPlugin = require('compression-webpack-plugin'),
+ExtractTextPlugin = require('extract-text-webpack-plugin'),
 common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -35,6 +36,24 @@ module.exports = merge(common, {
                     }
                 }
                 
+            },
+            {
+                test: /\.css$/,
+                exclude: /node_modules/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: [
+                        {
+                            loader: 'css-loader',
+                            options: {
+                                modules: true,
+                                importLoaders: 1,
+                                minimize: true,
+                                localIdentName: '[name]__[local]__[hash:base64:5]'
+                            }
+                        }
+                    ]                    
+                })
             }
         ]
     },
@@ -56,6 +75,10 @@ module.exports = merge(common, {
         }),
         new webpack.DefinePlugin({
             'proccess.env.NODE_ENV': JSON.stringify('production')
-        })
+        }),
+        new ExtractTextPlugin({
+            filename: 'css/style.min.css',
+            ignoreOrder: true
+        }) 
     ]
 })
