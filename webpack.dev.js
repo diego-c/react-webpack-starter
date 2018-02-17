@@ -14,7 +14,7 @@ module.exports = merge(common, {
                         name: '[path][name].[ext]'
                     }
                 }
-            }
+            }           
         ]
     },
     devServer: {
