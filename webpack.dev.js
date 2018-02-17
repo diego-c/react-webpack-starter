@@ -26,6 +26,7 @@ module.exports = merge(common, {
                             options: {
                                 modules: true,
                                 importLoaders: 1,
+                                sourceMap: true,
                                 localIdentName: '[name]__[local]__[hash:base64:5]'
                             }
                         }
@@ -41,7 +42,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new webpack.SourceMapDevToolPlugin({
-            filename: '[name].js.map'
+            filename: './sourcemaps/[name].js.map'
         }),
         new ExtractTextPlugin({
             filename: './css/style.css',
