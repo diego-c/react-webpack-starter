@@ -4,8 +4,8 @@
   "description": "A quick boilerplate for react projects set up with webpack",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --color --progress --hot --open",
-    "build": "webpack --color --progress"
+    "start": "webpack-dev-server --config webpack.dev.js --color --progress --hot --open",
+    "build": "webpack --config webpack.prod.js --color --progress"
   },
   "keywords": [
     "react",
@@ -20,13 +20,18 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "compression-webpack-plugin": "^1.1.7",
     "css-loader": "^0.28.9",
-    "eslint": "^4.16.0",
     "file-loader": "^1.1.6",
+    "html-webpack-plugin": "^2.30.1",
+    "image-webpack-loader": "^4.1.0",
     "style-loader": "^0.20.1",
+    "svg-url-loader": "^2.3.1",
     "uglifyjs-webpack-plugin": "^1.2.0",
+    "url-loader": "^0.6.2",
     "webpack": "^3.10.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^2.11.1",
+    "webpack-merge": "^4.1.1"
   },
   "dependencies": {
     "react": "^16.2.0",

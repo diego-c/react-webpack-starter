@@ -1,16 +1,11 @@
 const path = require('path'),
-UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
     entry: './src/index.js',
     output: {
         filename: 'bundle.js',
         path: path.join(__dirname, 'dist')
-    },
-    devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        compress: true,
-        port: 1337
     },
     module: {
         rules: [
@@ -40,27 +35,19 @@ module.exports = {
                 ]
             },
             {
-                test: /\.(png|jpe?g|svg|gif|mp(3|4)|flac|webm|avi|ogg|mkv)$/,
+                test: /\.(mp(3|4)|flac|webm|avi|ogg|mkv)$/,
                 use: {
                     loader: 'file-loader',
                     options: {
                         name: '[path][name].[ext]'
                     }
                 }
-            }
+            },            
         ]
     },
-    plugins: [
-        new UglifyJSPlugin({
-            test: /\.js$/,
-            cache: true,
-            parallel: true,
-            sourceMap: true,
-            uglifyOptions: {                
-                ecma: 8,
-                ie8: true,
-                safari10: true
-            }            
-        })
-    ]
+    plugins: [ 
+        new HTMLWebpackPlugin({
+            template: path.join(__dirname, 'src', 'index.html')
+        }) 
+    ]    
 }

@@ -3,7 +3,7 @@
 
 # react-webpack-starter
 
-A lightweight setup for new React projects
+A robust setup for new React projects
 
 # Features
 
@@ -11,7 +11,7 @@ This boilerplate supports by default:
 
 - ES6+, including stage 2 ECMAScript proposals
 - Source Maps for easier debugging
-- Compression enabled by webpack-dev-server and UglifyJS plugin
+- Compression for production
 - Hot Module Replacement (HMR)
 - Scoped CSS classes with CSS modules
 - IE8 / Safari 10
