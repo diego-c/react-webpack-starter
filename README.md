@@ -14,7 +14,7 @@ This boilerplate supports by default:
 - Compression for production
 - Hot Module Replacement (HMR)
 - Scoped CSS classes with CSS modules
-- IE8 / Safari 10
+- IE9 / Safari 10 (for React 16)
 
 # Instructions
 
