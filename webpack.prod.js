@@ -67,7 +67,7 @@ module.exports = merge(common, {
             deleteOriginalAssets: true
         }),
         new webpack.DefinePlugin({
-            'proccess.env.NODE_ENV': JSON.stringify('production')
+            'process.env.NODE_ENV': JSON.stringify('production')
         }),
         new ExtractTextPlugin({
             filename: './css/style.min.css',
