@@ -59,7 +59,8 @@ module.exports = merge(common, {
     devServer: {
         contentBase: path.join(__dirname, 'dist'),
         compress: true,
-        port: 1337
+        port: 1337,
+        historyApiFallback: true
     },   
     plugins: [
         new HTMLWebpackPlugin({
