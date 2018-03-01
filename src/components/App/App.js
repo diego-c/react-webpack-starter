@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import Image from '../Image/Image';
+import asyncComponent from '../asyncComponent/AsyncComponent';
+
+// use this to split the Image component into a new chunk
+// instead of: import Image from '../Image/Image';
+const Image = asyncComponent(() => (
+    import('../Image/Image').then(module => module.default)
+));
+
 import classes from './App.css';
 import logo from '../../img/react-logo.png';
 

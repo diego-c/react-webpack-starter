@@ -2,12 +2,11 @@ const path = require('path'),
 HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: './src/index.js',
-    output: {
-        filename: 'bundle.js',
-        path: path.join(__dirname, 'dist'),
-        hotUpdateChunkFilename: 'hot/hot-update.js',
-        hotUpdateMainFilename: 'hot/hot-update.json'
+    entry: {
+        main: './src/index.js'    
+    },
+    resolve: {
+        extensions: ['.js', '.jsx']
     },
     module: {
         rules: [
@@ -17,7 +16,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['react', 'env', 'stage-2']
+                        presets: ['babel-preset-env', 'babel-preset-stage-2', 'babel-preset-react']
                     }
                 }
             },
@@ -26,15 +25,10 @@ module.exports = {
                 use: {
                     loader: 'file-loader',
                     options: {
-                        name: '[path][name].[ext]'
+                        name: './assets/[path][name].[ext]'
                     }
                 }
             }                        
         ]
-    },
-    plugins: [ 
-        new HTMLWebpackPlugin({
-            template: path.join(__dirname, 'src', 'index.html')
-        })
-    ]    
+    } 
 }
