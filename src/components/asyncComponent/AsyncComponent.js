@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 
-const asyncComponent = getComponent => {
+const asyncComponent = getComponent => (
 
-    return class AsyncComponent extends Component {
+    class extends Component {
 
         state = {
             Comp: null
@@ -22,8 +22,6 @@ const asyncComponent = getComponent => {
             return Comp ? <Comp { ...this.props } /> : null 
         }
     }
-
-    return AsyncComponent;
-}
+)
 
 export default asyncComponent;
