@@ -6,6 +6,9 @@ path = require('path'),
 common = require('./webpack.common');
 
 module.exports = merge(common, {
+    entry: {
+        main: './src/index.js'    
+    },
     devtool: 'cheap-module-eval-source-map',
     output: {
         filename: './js/[name].js',
@@ -74,6 +77,9 @@ module.exports = merge(common, {
             filename: './css/main.css',
             ignoreOrder: true
         }),
-        new webpack.NamedModulesPlugin() 
+        new webpack.NamedModulesPlugin(),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('development')
+        }) 
     ]
 })

@@ -118,15 +118,15 @@ module.exports = merge(common, {
                 safari10: true
             }            
         }),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('production')
-        }),
         new ExtractTextPlugin({
             filename: './css/style.min.css',
             ignoreOrder: true
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
+        }),
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': JSON.stringify('production')
         }) 
     ]
 })
