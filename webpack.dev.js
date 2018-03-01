@@ -69,7 +69,7 @@ module.exports = merge(common, {
             minify: false
         }),
         new ExtractTextPlugin({
-            filename: './css/style.css',
+            filename: './css/main.css',
             ignoreOrder: true
         }) 
     ]
