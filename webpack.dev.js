@@ -1,5 +1,6 @@
 const merge = require('webpack-merge'),
 ExtractTextPlugin = require('extract-text-webpack-plugin'),
+webpack = require('webpack'),
 HTMLWebpackPlugin = require('html-webpack-plugin'),
 path = require('path'),
 common = require('./webpack.common');
@@ -72,6 +73,7 @@ module.exports = merge(common, {
         new ExtractTextPlugin({
             filename: './css/main.css',
             ignoreOrder: true
-        }) 
+        }),
+        new webpack.NamedModulesPlugin() 
     ]
 })
