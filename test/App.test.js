@@ -10,5 +10,10 @@ describe('<App />', () => {
         const wrapper = shallow(<App />);
         expect(wrapper.find(Image)).toHaveLength(1);
     });
+
+    it('renders title', () => {
+        const wrapper = shallow(<App />);
+        expect(wrapper.find('h1')).toHaveLength(1);
+    });
 });
 

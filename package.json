@@ -16,19 +16,26 @@
     "globals": {
       "NODE_ENV": "test"
     },
-    "moduleFileExtensions": [
-      "js",
-      "jsx"
+    "testMatch": [
+      "<rootDir>/test/?(*.)(spec|test).{js,jsx,mjs}"
     ],
-    "moduleDirectories": [
-      "node_modules"
-    ],
-    "moduleNameMapper": {
-      "\\.css$": "identity-obj-proxy"
-    },
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
     "transform": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/transformer.js"
-    }
+      "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/transformer.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
+    ],
+    "moduleFileExtensions": [
+      "mjs",
+      "js",
+      "json",
+      "jsx",
+      "node"
+    ]
   },
   "keywords": [
     "react",
