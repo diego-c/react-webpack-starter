@@ -31,10 +31,13 @@ To run all tests:
 
 `npm test` or `yarn test`
 
-**NOTE:** if you wish to use async/await for your tests, install the `runtime-regenerator` package add on the top of your file:
+**NOTE:** if you wish to use async/await for your tests, install the `regenerator-runtime` package and add on the top of your file:
 
-`import 'babel-polyfill'`
-`import 'runtime-regenerator`
+`import 'babel-polyfill';`
+
+`import 'regenerator-runtime';`
+
+See this [StackOverflow thread](https://stackoverflow.com/questions/33527653/babel-6-regeneratorruntime-is-not-defined) for more info.
 
 ## Build
 
