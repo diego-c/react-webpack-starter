@@ -12,12 +12,15 @@
         "stage-2",
         "react"
     ],
-    "plugins": [
-        "syntax-dynamic-import"
-    ],
     "env": {
         "test": {
-            "plugins": ["dynamic-import-node"]
+            "plugins": ["transform-es2015-modules-commonjs","dynamic-import-node"]
+        },
+        "production": {
+            "plugins": ["transform-es2015-modules-commonjs"]
+        },
+        "development": {
+            "plugins": ["transform-es2015-modules-commonjs", "dynamic-import-node"]
         }
     }
 }

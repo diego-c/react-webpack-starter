@@ -6,19 +6,28 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --color --progress --hot --open",
     "build": "rm -rf dist/ && webpack -p --config webpack.prod.js --color --progress",
-    "test": "jest --no-cache --watch"
+    "test": "jest --no-cache --watchAll"
   },
   "transform": {
     "^.+\\.jsx?$": "babel-jest",
     "^.+\\.css$": "custom-transformer"
   },
   "jest": {
+    "globals": {
+      "NODE_ENV": "test"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ],
     "moduleNameMapper": {
       "\\.css$": "identity-obj-proxy"
     },
     "transform": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$":
-        "<rootDir>/transformer.js"
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/transformer.js"
     }
   },
   "keywords": [
@@ -35,6 +44,7 @@
     "babel-loader": "^7.1.2",
     "babel-plugin-dynamic-import-node": "^1.2.0",
     "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
