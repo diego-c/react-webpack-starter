@@ -37,7 +37,7 @@ To run all tests:
 
 `import 'regenerator-runtime';`
 
-See this [StackOverflow thread](https://stackoverflow.com/questions/33527653/babel-6-regeneratorruntime-is-not-defined) for more info.
+See this <a href="https://stackoverflow.com/questions/33527653/babel-6-regeneratorruntime-is-not-defined" target="_blank" title="regeneratorRuntime is not defined" rel="noopener">StackOverflow thread</a> for more info.
 
 ## Build
 
