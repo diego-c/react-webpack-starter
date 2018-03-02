@@ -8,10 +8,6 @@
     "build": "rm -rf dist/ && webpack -p --config webpack/webpack.prod.js --color --progress",
     "test": "jest --env=jsdom --no-cache --watchAll"
   },
-  "transform": {
-    "^.+\\.jsx?$": "babel-jest",
-    "^.+\\.css$": "custom-transformer"
-  },
   "jest": {
     "globals": {
       "NODE_ENV": "test"
