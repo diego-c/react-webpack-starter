@@ -75,7 +75,7 @@ module.exports = merge(common, {
         }),
         new ExtractTextPlugin({
             filename: './css/main.css',
-            ignoreOrder: true
+            allChunks: true
         }),
         new webpack.NamedModulesPlugin(),
         new webpack.DefinePlugin({

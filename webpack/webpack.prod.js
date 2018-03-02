@@ -120,7 +120,7 @@ module.exports = merge(common, {
         }),
         new ExtractTextPlugin({
             filename: './css/style.min.css',
-            ignoreOrder: true
+            allChunks: true
         }),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
