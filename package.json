@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --config webpack.dev.js --color --progress --hot --open",
     "build": "rm -rf dist/ && webpack -p --config webpack.prod.js --color --progress",
-    "test": "jest --no-cache --watchAll"
+    "test": "jest --env=jsdom --no-cache --watchAll"
   },
   "transform": {
     "^.+\\.jsx?$": "babel-jest",
@@ -67,6 +67,7 @@
     "identity-obj-proxy": "^3.0.0",
     "image-webpack-loader": "^4.1.0",
     "jest": "^22.4.2",
+    "jsdom": "^11.6.2",
     "postcss-loader": "^2.1.1",
     "react-test-renderer": "^16.2.0",
     "regenerator-runtime": "^0.11.1",
