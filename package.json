@@ -13,7 +13,8 @@
       "NODE_ENV": "test"
     },
     "testMatch": [
-      "<rootDir>/test/?(*.)(spec|test).{js,jsx,mjs}"
+      "<rootDir>/test/?(*.)(spec|test).{js,jsx,mjs}",
+      "<rootDir>/test/**/?(*.)(spec|test).{js,jsx,mjs}"
     ],
     "testEnvironment": "node",
     "testURL": "http://localhost",
