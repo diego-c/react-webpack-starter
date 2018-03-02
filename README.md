@@ -11,6 +11,7 @@ This boilerplate supports by default:
 
 - ES6+, including stage 2 ECMAScript proposals
 - Source Maps for easier debugging
+- Testing with Jest and Enzyme
 - Compression for production
 - Hot Module Replacement (HMR)
 - Code splitting
@@ -24,7 +25,19 @@ This boilerplate supports by default:
 3. Install packages: `npm install` or `yarn install`
 4. Start the server: `npm start` or `yarn start`
 
----
+## Test
+
+To run all tests:
+
+`npm test` or `yarn test`
+
+**NOTE:** if you wish to use async/await for your tests, install the `runtime-regenerator` package add on the top of your file:
+
+`import 'babel-polyfill'`
+`import 'runtime-regenerator`
+
+## Build
+
 To build your project:
 
 `npm run build` or `yarn build`
