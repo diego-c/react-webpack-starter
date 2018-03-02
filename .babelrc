@@ -14,5 +14,10 @@
     ],
     "plugins": [
         "syntax-dynamic-import"
-    ]
+    ],
+    "env": {
+        "test": {
+            "plugins": ["dynamic-import-node"]
+        }
+    }
 }
