@@ -1,10 +1,11 @@
-import './adapter.config';
+import './config/adapter.config';
 import React from 'react';
 import { shallow } from 'enzyme';
 
 import App from '../src/components/App/App';
 
 describe('<App />', () => {
+    
     it('successfully renders <Image /> asynchronously', () => {
 
         import('../src/components/Image/Image')

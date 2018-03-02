@@ -8,12 +8,12 @@ common = require('./webpack.common');
 
 module.exports = merge(common, {
     entry: {
-        main: ['babel-polyfill', './src/index.js'],
+        main: ['babel-polyfill', path.resolve(__dirname, '../src', 'index.js')],
         vendor: ['react', 'react-dom']
     },
     output: {
         filename: './js/[name].min.js',
-        path: path.join(__dirname, 'dist'),
+        path: path.join(__dirname, '../dist'),
         chunkFilename: './js/[name].chunk.min.js'
     },
     devtool: 'source-map',
@@ -102,7 +102,7 @@ module.exports = merge(common, {
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: path.join(__dirname, 'src', 'index.html'),
+            template: path.join(__dirname, '../src', 'index.html'),
             title: 'React App',
             inject: 'body',
             minify: false

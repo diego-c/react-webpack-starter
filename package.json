@@ -1,11 +1,11 @@
 {
   "name": "react-webpack-starter",
   "version": "1.0.0",
-  "description": "A quick boilerplate for react projects set up with webpack",
+  "description": "A robust setup for new React projects",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.dev.js --color --progress --hot --open",
-    "build": "rm -rf dist/ && webpack -p --config webpack.prod.js --color --progress",
+    "start": "webpack-dev-server --config webpack/webpack.dev.js --color --progress --hot --open",
+    "build": "rm -rf dist/ && webpack -p --config webpack/webpack.prod.js --color --progress",
     "test": "jest --env=jsdom --no-cache --watchAll"
   },
   "transform": {
@@ -23,8 +23,8 @@
     "testURL": "http://localhost",
     "transform": {
       "^.+\\.(js|jsx|mjs)$": "<rootDir>/node_modules/babel-jest",
-      "^.+\\.css$": "<rootDir>/cssTransform.js",
-      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/transformer.js"
+      "^.+\\.css$": "<rootDir>/test/config/cssTransform.js",
+      "^(?!.*\\.(js|jsx|mjs|css|json)$)": "<rootDir>/test/config/fileTransformer.js"
     },
     "transformIgnorePatterns": [
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
@@ -70,7 +70,6 @@
     "jsdom": "^11.6.2",
     "postcss-loader": "^2.1.1",
     "react-test-renderer": "^16.2.0",
-    "regenerator-runtime": "^0.11.1",
     "style-loader": "^0.20.1",
     "svg-url-loader": "^2.3.1",
     "uglifyjs-webpack-plugin": "^1.2.0",

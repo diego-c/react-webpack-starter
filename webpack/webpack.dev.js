@@ -7,7 +7,7 @@ common = require('./webpack.common');
 
 module.exports = merge(common, {
     entry: {
-        main: './src/index.js'    
+        main: path.resolve(__dirname, '../src', 'index.js')   
     },
     devtool: 'cheap-module-eval-source-map',
     output: {
@@ -61,14 +61,14 @@ module.exports = merge(common, {
         ]
     },
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
+        contentBase: path.join(__dirname, '../dist'),
         compress: true,
         port: 1337,
         historyApiFallback: true
     },   
     plugins: [
         new HTMLWebpackPlugin({
-            template: path.join(__dirname, 'src', 'index.html'),
+            template: path.join(__dirname, '../src', 'index.html'),
             title: 'React App (Development)',
             inject: 'body',
             minify: false
