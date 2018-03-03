@@ -12,9 +12,9 @@ module.exports = merge(common, {
         vendor: ['react', 'react-dom']
     },
     output: {
-        filename: './js/[name].min.js',
+        filename: './js/[name]_[chunkhash].min.js',
         path: path.join(__dirname, '../dist'),
-        chunkFilename: './js/[name].chunk.min.js'
+        chunkFilename: './js/[name]_[chunkhash].chunk.min.js'
     },
     devtool: 'source-map',
     module: {
@@ -119,11 +119,15 @@ module.exports = merge(common, {
             }            
         }),
         new ExtractTextPlugin({
-            filename: './css/style.min.css',
+            filename: './css/style_[chunkhash].min.css',
             allChunks: true
         }),
+        new webpack.HashedModuleIdsPlugin(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'manifest'
         }),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
