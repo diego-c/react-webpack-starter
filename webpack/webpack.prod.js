@@ -99,7 +99,9 @@ module.exports = merge(common, {
             template: path.resolve(__dirname, '../src/index.html'),
             title: 'React App'
         }),
-        new ManifestPlugin(),
+        new ManifestPlugin({
+            dropAsset: true
+        }),
         new UglifyJSPlugin({
             test: /\.js$/,
             cache: true,
