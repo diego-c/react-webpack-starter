@@ -7,6 +7,7 @@ ExtractTextPlugin = require('extract-text-webpack-plugin'),
 ManifestPlugin = require('inline-chunk-manifest-html-webpack-plugin'),
 ChunkHash = require('webpack-chunk-hash'),
 OfflinePlugin = require('offline-plugin'),
+PWAManifest = require('webpack-pwa-manifest'),
 common = require('./webpack.common');
 
 module.exports = merge(common, {
@@ -98,6 +99,21 @@ module.exports = merge(common, {
         new HTMLWebpackPlugin({
             template: path.resolve(__dirname, '../src/index.html'),
             title: 'React App'
+        }),
+        new PWAManifest({
+            name: 'React App',
+            short_name: 'ReactApp',
+            description: 'Production ready React PWA',
+            theme_color: '#47b9f7',
+            background_color: '#ffffff',
+            orientation: 'portrait',
+            icons: [
+                {
+                    src: path.resolve(__dirname, '../src/react-logo.svg'),
+                    sizes: [96, 128, 192, 256, 384, 512],
+                    destination: './icons'
+                }
+            ] 
         }),
         new ManifestPlugin({
             dropAsset: true
