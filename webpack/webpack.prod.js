@@ -4,30 +4,24 @@ path = require('path'),
 HTMLWebpackPlugin = require('html-webpack-plugin'),
 UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
 ExtractTextPlugin = require('extract-text-webpack-plugin'),
+ManifestPlugin = require('inline-chunk-manifest-html-webpack-plugin'),
+ChunkHash = require('webpack-chunk-hash'),
+OfflinePlugin = require('offline-plugin'),
 common = require('./webpack.common');
 
 module.exports = merge(common, {
     entry: {
         main: ['babel-polyfill', path.resolve(__dirname, '../src', 'index.js')],
-        vendor: ['react', 'react-dom']
+        vendor: ['react', 'react-dom', 'offline-plugin/runtime']
     },
     output: {
-        filename: './js/[name]_[chunkhash].min.js',
+        filename: './js/[name].[chunkhash].min.js',
         path: path.join(__dirname, '../dist'),
-        chunkFilename: './js/[name]_[chunkhash].chunk.min.js'
+        chunkFilename: './js/[name].[chunkhash].chunk.min.js'
     },
     devtool: 'source-map',
     module: {
         rules: [
-            {
-                test: /\.html$/,
-                use: {
-                    loader: 'html-loader',
-                    options: {
-                        minimize: true
-                    }
-                }
-            },
             {
                 test: /\.(jpe?g|gif|png)$/,
                 use: [
@@ -36,7 +30,7 @@ module.exports = merge(common, {
                         options: {
                             limit: 1024 * 10,
                             fallback: 'file-loader',
-                            name: 'images/[name]_[hash].[ext]'
+                            name: 'images/[name].[hash].[ext]'
                         }
                     },
                     {
@@ -62,13 +56,12 @@ module.exports = merge(common, {
                         limit: 10 * 1024,
                         noquotes: true,
                         iesafe: true,
-                        name: './assets/img/[name]_[hash].[ext]'
+                        name: './assets/img/[name].[hash].[ext]'
                     }
                 }
             },
             {
                 test: /\.css$/,
-                exclude: /node_modules/,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
@@ -101,12 +94,12 @@ module.exports = merge(common, {
         ]
     },
     plugins: [
+        new webpack.optimize.ModuleConcatenationPlugin(),
         new HTMLWebpackPlugin({
-            template: path.join(__dirname, '../src', 'index.html'),
-            title: 'React App',
-            inject: 'body',
-            minify: false
+            template: path.resolve(__dirname, '../src/index.html'),
+            title: 'React App'
         }),
+        new ManifestPlugin(),
         new UglifyJSPlugin({
             test: /\.js$/,
             cache: true,
@@ -118,11 +111,17 @@ module.exports = merge(common, {
                 safari10: true
             }            
         }),
+        new OfflinePlugin({
+            AppCache: false,
+            ServiceWorker: { events: true },
+            caches: 'all'
+        }),
         new ExtractTextPlugin({
-            filename: './css/style_[chunkhash].min.css',
+            filename: './css/style.[chunkhash].min.css',
             allChunks: true
         }),
         new webpack.HashedModuleIdsPlugin(),
+        new ChunkHash(),
         new webpack.optimize.CommonsChunkPlugin({
             name: 'vendor'
         }),
