@@ -12,10 +12,10 @@ This boilerplate supports by default:
 - ES6+, including stage 2 ECMAScript proposals
 - Source Maps for easier debugging
 - Testing with Jest and Enzyme
-- Compression for production
 - Hot Module Replacement (HMR)
 - Code splitting
 - Scoped CSS classes with CSS modules
+- Compression and caching for production
 - IE9 / Safari 10 (for React 16)
 
 # Instructions
