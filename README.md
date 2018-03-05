@@ -16,6 +16,7 @@ This boilerplate supports by default:
 - Code splitting
 - Scoped CSS classes with CSS modules
 - Compression and caching for production
+- PWA-ready build
 - IE9 / Safari 10 (for React 16)
 
 # Instructions
